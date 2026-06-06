@@ -1,43 +1,148 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Upload Your Media</title>
-    <style>
-        body { font-family: 'Segoe UI', Arial, sans-serif; background: #0f0f10; color: #e4e4e7; display: flex; justify-content: center; align-items: center; min-height: 100vh; margin: 0; padding: 20px; box-sizing: border-box; }
-        .form-container { background: #18181b; padding: 30px; border-radius: 12px; border: 1px solid #27272a; width: 100%; max-width: 420px; box-shadow: 0 10px 25px rgba(0,0,0,0.5); }
-        h2 { margin-top: 0; color: #fff; font-size: 24px; text-align: center; margin-bottom: 25px; }
-        label { display: block; margin-top: 15px; margin-bottom: 5px; font-size: 14px; color: #a1a1aa; font-weight: 500; }
-        input[type="email"], input[type="file"] { width: 100%; padding: 12px; margin-bottom: 5px; border-radius: 8px; border: 1px solid #3f3f46; background: #27272a; color: #fff; box-sizing: border-box; font-size: 14px; }
-        input[type="file"] { padding: 8px; cursor: pointer; }
-        .file-note { font-size: 11px; color: #71717a; margin-bottom: 15px; display: block; }
-        button { width: 100%; padding: 14px; margin-top: 20px; border-radius: 8px; border: none; background: #2563eb; color: white; font-size: 16px; font-weight: 600; cursor: pointer; transition: background 0.2s; }
-        button:hover { background: #1d4ed8; }
-    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professional Media Studio</title>
+    <style>
+        /* General Reset */
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        body { background-color: #f9f9f6; color: #333; }
+
+        /* Color Palette */
+        :root {
+            --olive-dark: #3b4d2e;
+            --olive-light: #556b2f;
+            --cream: #f4f4eb;
+            --white: #ffffff;
+        }
+
+        /* Navbar */
+        header { background-color: var(--olive-dark); padding: 20px 50px; display: flex; justify-content: space-between; align-items: center; color: var(--white); }
+        header h1 { font-size: 24px; font-weight: 600; letter-spacing: 1px; }
+        
+        /* Hero Section with Background Image */
+        .hero {
+            background: linear-gradient(rgba(59, 77, 46, 0.8), rgba(59, 77, 46, 0.8)), url('https://images.unsplash.com/photo-1601506521937-0121a7fc2a6b?q=80&w=2071&auto=format&fit=crop') no-repeat center center/cover;
+            height: 60vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: var(--white);
+            padding: 0 20px;
+        }
+        .hero h2 { font-size: 48px; margin-bottom: 15px; }
+        .hero p { font-size: 20px; max-width: 600px; font-weight: 300; line-height: 1.6; }
+
+        /* Info Section with Photos */
+        .info-section { padding: 80px 50px; display: flex; gap: 40px; justify-content: center; align-items: center; max-width: 1200px; margin: 0 auto; flex-wrap: wrap; }
+        .info-text { flex: 1; min-width: 300px; }
+        .info-text h3 { color: var(--olive-dark); font-size: 32px; margin-bottom: 20px; }
+        .info-text p { font-size: 18px; line-height: 1.8; color: #555; margin-bottom: 20px; }
+        .info-image { flex: 1; min-width: 300px; }
+        .info-image img { width: 100%; border-radius: 10px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); border: 5px solid var(--white); }
+
+        /* The Form Section */
+        .form-section { background-color: var(--cream); padding: 80px 20px; }
+        .form-container {
+            background: var(--white);
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 15px 40px rgba(59, 77, 46, 0.15);
+            border-top: 8px solid var(--olive-light);
+        }
+        .form-container h3 { text-align: center; color: var(--olive-dark); font-size: 28px; margin-bottom: 30px; }
+        
+        .form-group { margin-bottom: 25px; }
+        label { display: block; font-weight: 600; margin-bottom: 8px; color: var(--olive-dark); }
+        input[type="email"], input[type="file"] {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #ddd;
+            border-radius: 6px;
+            font-size: 16px;
+            transition: all 0.3s;
+            background-color: #fafafa;
+        }
+        input[type="email"]:focus { border-color: var(--olive-light); outline: none; }
+        input[type="file"] { padding: 10px; cursor: pointer; }
+        
+        .submit-btn {
+            width: 100%;
+            background-color: var(--olive-dark);
+            color: var(--white);
+            border: none;
+            padding: 16px;
+            font-size: 18px;
+            font-weight: bold;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background 0.3s;
+            margin-top: 10px;
+        }
+        .submit-btn:hover { background-color: var(--olive-light); }
+
+        /* Footer */
+        footer { background-color: var(--olive-dark); color: var(--white); text-align: center; padding: 30px 20px; margin-top: auto; }
+    </style>
 </head>
 <body>
 
-<div class="form-container">
-    <h2>Upload Your Media</h2>
-    
-    <form action="https://forminit.com/thank-you" method="POST" enctype="multipart/form-data">
-        
-        <label for="email">Your Gmail Address:</label>
-        <input type="email" id="email" name="email" placeholder="example@gmail.com" required>
-        <span class="file-note">We will send your final video to this email.</span>
+    <header>
+        <h1>VCONIC MEDIA</h1>
+    </header>
 
-        <label for="photo">Upload Your Photo:</label>
-        <input type="file" id="photo" name="photo" accept="image/*" required>
-        <span class="file-note">Clear face photo preferred.</span>
+    <div class="hero">
+        <h2>Bring Your Vision to Life</h2>
+        <p>Upload your reference material and let our experts craft the perfect personalized video for you.</p>
+    </div>
 
-        <label for="video">Upload Reference Video:</label>
-        <input type="file" id="video" name="video" accept="video/*" required>
-        <span class="file-note">Max size depends on your plan.</span>
+    <div class="info-section">
+        <div class="info-text">
+            <h3>Professional Editing Standards</h3>
+            <p>We specialize in creating high-retention, cinematic-quality content tailored to your specific needs. Whether it's for your personal brand or a large-scale project, we maintain the highest aesthetic standards.</p>
+            <p>Simply provide us with a clear photograph and a reference video of the style you want, and our team will handle the rest.</p>
+        </div>
+        <div class="info-image">
+            <img src="https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?q=80&w=2070&auto=format&fit=crop" alt="Video Editing Setup">
+        </div>
+    </div>
 
-        <button type="submit">Submit & Process</button>
-    </form>
-</div>
+    <div class="form-section">
+        <div class="form-container">
+            <h3>Submit Your Media</h3>
+            
+            <form action="PASTE_YOUR_GETFORM_LINK_HERE" method="POST" enctype="multipart/form-data">
+                
+                <div class="form-group">
+                    <label>Your Contact Email:</label>
+                    <input type="email" name="email" placeholder="Where should we send the video?" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Upload Your Photo:</label>
+                    <input type="file" name="photo" accept="image/*" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Upload Reference Video:</label>
+                    <input type="file" name="video" accept="video/*" required>
+                </div>
+
+                <button type="submit" class="submit-btn">Upload & Generate Video</button>
+            </form>
+
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Vconic Media. All rights reserved.</p>
+    </footer>
 
 </body>
 </html>
