@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Your Media</title>
+    <style>
+        body { font-family: 'Segoe UI', Arial, sans-serif; background: #0f0f10; color: #e4e4e7; display: flex; justify-content: center; align-items: center; min-height: 100vh; margin: 0; padding: 20px; box-sizing: border-box; }
+        .form-container { background: #18181b; padding: 30px; border-radius: 12px; border: 1px solid #27272a; width: 100%; max-width: 420px; box-shadow: 0 10px 25px rgba(0,0,0,0.5); }
+        h2 { margin-top: 0; color: #fff; font-size: 24px; text-align: center; margin-bottom: 25px; }
+        label { display: block; margin-top: 15px; margin-bottom: 5px; font-size: 14px; color: #a1a1aa; font-weight: 500; }
+        input[type="email"], input[type="file"] { width: 100%; padding: 12px; margin-bottom: 5px; border-radius: 8px; border: 1px solid #3f3f46; background: #27272a; color: #fff; box-sizing: border-box; font-size: 14px; }
+        input[type="file"] { padding: 8px; cursor: pointer; }
+        .file-note { font-size: 11px; color: #71717a; margin-bottom: 15px; display: block; }
+        button { width: 100%; padding: 14px; margin-top: 20px; border-radius: 8px; border: none; background: #2563eb; color: white; font-size: 16px; font-weight: 600; cursor: pointer; transition: background 0.2s; }
+        button:hover { background: #1d4ed8; }
+    </style>
+</head>
+<body>
+
+<div class="form-container">
+    <h2>Upload Your Media</h2>
+    
+    <form action="https://forminit.com/thank-you" method="POST" enctype="multipart/form-data">
+        
+        <label for="email">Your Gmail Address:</label>
+        <input type="email" id="email" name="email" placeholder="example@gmail.com" required>
+        <span class="file-note">We will send your final video to this email.</span>
+
+        <label for="photo">Upload Your Photo:</label>
+        <input type="file" id="photo" name="photo" accept="image/*" required>
+        <span class="file-note">Clear face photo preferred.</span>
+
+        <label for="video">Upload Reference Video:</label>
+        <input type="file" id="video" name="video" accept="video/*" required>
+        <span class="file-note">Max size depends on your plan.</span>
+
+        <button type="submit">Submit & Process</button>
+    </form>
+</div>
+
+</body>
+</html>
